@@ -1,4 +1,4 @@
-package com.test;
+package com.lambda.comparator;
 
 public class Person {
 	String firstName;

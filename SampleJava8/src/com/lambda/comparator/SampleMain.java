@@ -1,4 +1,4 @@
-package com.test;
+package com.lambda.comparator;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,11 +21,25 @@ public class SampleMain {
 //
 //		});
 		
-		Collections.sort(people, (Person arg0, Person arg1) -> arg0.getLastname().compareTo(arg1.getLastname()));
+		Collections.sort(people, ( arg0,  arg1) -> arg0.getLastname().compareTo(arg1.getLastname()));
 		
 		for(Person p: people){
 		System.out.println(p.firstName+" "+p.lastname);	
 		}
+		
+		MyInterface objInterface=(str)->System.out.println(str);
+		objInterface.printIt("Hello lambda");
+		
+		MyClass objMyClass=new MyClass();
+		objMyClass.testListener(new MyInterface() {
+			
+			@Override
+			public void printIt(String text) {
+				System.out.println(text);
+				
+			}
+		});
+		objMyClass.testListener( test -> System.out.println(test));
 	}
 
 }
